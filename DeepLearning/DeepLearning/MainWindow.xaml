@@ -29,7 +29,7 @@
         </Style>
 
         <Style TargetType="Border">
-            <Setter Property="BorderThickness" Value="3" />
+            <Setter Property="BorderThickness" Value="1" />
             <Setter Property="BorderBrush" Value="LightBlue" />
         </Style>
 
@@ -77,8 +77,8 @@
 
                     <Grid Grid.Column="0" Grid.Row="0">
                         <Grid>
-                            <Border>
-                                <ListBox x:Name="lbImage" SelectedIndex="{Binding SelectIndex}" ItemsSource="{Binding ImageSourceList}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" HorizontalAlignment="Left">
+                            <Border x:Name="bdListBox">
+                                <ListBox x:Name="lbImage" SelectedIndex="{Binding SelectIndex}" ItemsSource="{Binding ImageSourceList}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" VerticalAlignment="Top" HorizontalAlignment="Left" Width="{Binding ElementName=bdListBox,Path=Width}">
                                     <ListBox.ItemTemplate>
                                         <DataTemplate>
                                             <Image Source="{Binding BitmapSource}"/>
@@ -160,7 +160,9 @@
                                             </ListView.View>
 
                                         </ListView>
-                                        --><!--<TextBox x:Name="textbox" Text="{Binding LearningProgressResult,UpdateSourceTrigger=PropertyChanged}"  TextWrapping="WrapWithOverflow"/>--><!--
+                                        -->
+                    <!--<TextBox x:Name="textbox" Text="{Binding LearningProgressResult,UpdateSourceTrigger=PropertyChanged}"  TextWrapping="WrapWithOverflow"/>-->
+                    <!--
                                     </StackPanel>
                                 </Grid>
 
@@ -212,7 +214,7 @@
 
         </Controls:MetroTabControl>
 
-        <!--<Controls:MetroProgressBar VerticalAlignment="Bottom" Margin="0,0,0,10" IsIndeterminate="True" Visibility="{Binding IsRunning,Converter={StaticResource BoolToVisibilityConverter}}" />-->
+        <Controls:MetroProgressBar VerticalAlignment="Bottom" Margin="0,0,0,2" IsIndeterminate="True" Visibility="{Binding IsRunning,Converter={StaticResource BoolToVisibilityConverter}}" />
 
     </Grid>
 </Controls:MetroWindow>
